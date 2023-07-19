@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import WelcomePage from './screens/welcome';
+import Terminal from './screens/terminal';
+import CommandLine from './screens/commandline';
 
-function App() {
+const App = () => {
+  const [currentScreen, setCurrentScreen] = useState('command-line');
+
+  const handleButtonClick = () => {
+    setCurrentScreen('terminal');
+  };
+  const handleClear = () => {
+    setCurrentScreen('command-line');
+  }
+
+  console.log(currentScreen);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {currentScreen === 'welcome' && <WelcomePage handleButtonClick={handleButtonClick} />}
+      {currentScreen === 'terminal' && <Terminal handleClear={handleClear}/>}
+      {currentScreen === 'command-line' && <CommandLine />}
+    </>
   );
-}
+};
 
 export default App;

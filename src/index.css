@@ -1,13 +1,131 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(./background.png);
+  z-index: -1;
+  background-position: center;
+  transition: transform 5s ease-in-out;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.background.zoomed {
+  transform: scale(7);
+}
+
+.command-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+  background-repeat: no-repeat;
+  background-size: 700% auto; /* Scale width by 7 times */
+  background-image: url(./background.png);
+  z-index: -1;
+  background-position: center;
+  cursor: none;
+}
+.terminal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: 700% auto; /* Scale width by 7 times */
+  background-image: url(./background.png);
+  z-index: -1;
+  background-position: center;
+  cursor: none;
+}
+
+.terminal h1,
+.terminal-description,
+.terminal-commands {
+  font-family: 'Prime Mono Round', monospace;
+  width: 1000px;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+.terminal-entry {
+  font-family: 'Prime Mono Round', monospace;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: left;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.terminal-examples {
+  font-family: 'Prime Mono Round', monospace;
+  width: 1000px;
+  color: rgba(255, 0, 0, 0.6);
+  text-align: left;
+  word-spacing: 60px;
+}
+.terminal-error {
+  font-family: 'Prime Mono Round', monospace;
+  width: 1000px;
+  color: rgba(255, 0, 0, 0.6);
+  text-align: left;
+}
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blinking-cursor-container {
+  display: inline-flex; /* Set the display property to inline-flex */
+  align-items: baseline; /* Align the cursor vertically with the last paragraph */
+}
+
+.blinking-cursor {
+  animation: blink 0.7s step-end infinite;
+  width: 8px; /* Adjust this to change the width of the cursor */
+  height: 16px; /* Adjust this to change the height of the cursor */
+  background-color: white; /* Adjust this to change the cursor color */
+  margin-left: -15px; /* Add some left margin to separate the cursor from the text */
+}
+
+.user-input {
+  font-family: 'Prime Mono Round', monospace;
+  padding-left: 5px;
+}
+
+
+.intro {
+  font-size: x-large;
+  font-family: 'Prime Mono Round', monospace;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #002813;
+  cursor:help;
+}
+
+.click-here {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  text-align:center;
+  font-size: x-large;
 }
