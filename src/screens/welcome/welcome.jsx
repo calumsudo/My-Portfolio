@@ -63,16 +63,17 @@ const WelcomePage = ({handleButtonClick}) => {
   }
 
   return (
-    <div className={`background ${zoomed ? 'zoomed' : ''}`}>
-      {!isHidden && (
-        <p className="intro" onMouseEnter={shuffleText} onMouseLeave={revertText}>
-          {shuffledText || originalText}
-        </p>
-      )}
-      {!isHidden && (
-        <button className="click-here" onClick={handleZoom}>Click Here</button>
-      )}
-      
+    <div>
+      <div className={`background ${zoomed ? 'zoomed' : ''}`}>
+        {!isHidden && (
+          <p className="intro" onMouseEnter={shuffleText} onMouseLeave={revertText}>
+            {shuffledText || originalText}
+          </p>
+        )}
+        {!isHidden && (
+          <button className="click-here" onClick={handleZoom}>Click Here</button>
+        )}
+      </div>
     </div>
   );
 };

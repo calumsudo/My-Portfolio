@@ -1,7 +1,10 @@
 import {useState, useEffect, useRef} from 'react';
-const Terminal = ({handleClear}) => {
+import BasicMenu from '../components/menu';
+import ProjectsScreen from './welcome/projectScreen';
+const Terminal = ({handleClear, handlePageChange}) => {
     const [inputValue, setInputValue] = useState('');
     const [inputSubmit, setInputSubmit] = useState('');
+    const [menuClicked, setMenuClicked] = useState(false);
     const inputRef = useRef(null);
 
     const handleInput = (event) => {
@@ -20,19 +23,33 @@ const Terminal = ({handleClear}) => {
           }
         }
       };
+    
+      const handlePage = (page) => {
+        handlePageChange(page);
+      }
 
-    useEffect(() => {
-        // Focus on the input element when the component mounts
-        inputRef.current.focus();
-      }, []);
+      const handleMenuClicked = (menuClicked) =>{
+        setMenuClicked(menuClicked);
+      }
+
+      useEffect(() => {
+        // Focus the input on initial render and whenever menuClicked changes
+        if (inputRef.current) {
+          inputRef.current.focus();
+        }
+      }, [menuClicked]);
 
     return (
+      <div>
+        <div>
+         <BasicMenu handlePage={handlePage} handleMenuClicked={handleMenuClicked}/>
+        </div>
       <div className="terminal">
         <section className="terminal-explain">
           <h1>Welcome to my Portfolio</h1>
           <p className="terminal-description">
             This page will act as the terminal to navigate my app. If using the command line scares you then I have
-            conveniently added a menu bar in the top right corner. If you are unfamiliar with using the command line
+            conveniently added a menu bar in the top left corner. If you are unfamiliar with using the command line
             here are the basics.
           </p>
           <p className="terminal-commands">
@@ -60,6 +77,8 @@ const Terminal = ({handleClear}) => {
           {inputSubmit==="Error: You need to Type the word clear to begin" && <p className="terminal-entry">{inputSubmit}</p>}
         </section>
       </div>
+      </div>
+
     );
   };
   

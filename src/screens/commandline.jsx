@@ -1,79 +1,100 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ProjectsScreen from './welcome/projectScreen';
+import Resume from './resume';
 
 const CommandLine = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [inputSubmit, setInputSubmit] = useState('');
-  const [output, setOutput] = useState([]);
+    const [commandHistory, setCommandHistory] = useState([]);
+    const [currentCommand, setCurrentCommand] = useState('');
+    const [cd, setCd] = useState('');
+    const [openProject, setOpenProject] = useState(false);
+    const [openResume, setOpenResume] = useState(false);
+
   const inputRef = useRef(null);
-
-  const handleInput = (event) => {
-    setInputValue(event.target.value);
+  
+  const handleInputChange = (event) => {
+    setCurrentCommand(event.target.value);
   };
-
-  const handleKeyPress = (event) => {
+  const handleEnterKeyPress = (event) => {
     if (event.key === 'Enter') {
-      console.log(inputValue);
-      const currentInputValue = inputValue; // Capture the current input value
-  
-      if (inputValue === 'ls') {
-        setInputSubmit('Projects Resume About_Me Game');
-      } 
-      else {
-        setInputSubmit(`Unknown command ${inputValue}`);
-      }
-  
-      setOutput((prevOutput) => [
-        ...prevOutput,
-        { input: 'Happy-Recruiter-Computer:Calum_Portfolio$ ' + currentInputValue, output: inputSubmit },
-      ]);
-      setInputValue('');
+      // Process the command when the user presses Enter
+      processCommand();
     }
   };
-  
 
   useEffect(() => {
     // Focus on the input element when the component mounts
     inputRef.current.focus();
   }, []);
 
-  useEffect(() => {
-    // Process the inputSubmit when it changes
-    if (inputSubmit) {
-      setOutput((prevOutput) => [
-        ...prevOutput,
-        { input: 'Happy-Recruiter-Computer:Calum_Portfolio$ ' + inputValue, output: inputSubmit },
-      ]);
+  const processCommand = () => {
+    // Process the currentCommand and generate the response
+    // You can use a switch statement or any other method to handle different commands
+    let response = '';
+
+    switch(currentCommand){
+        case "ls":
+            response = "Projects Resume About_Me Game";
+            setOpenProject(false);
+            setOpenResume(false);
+            break;
+        case "cd Projects":
+            setCd("Projects");
+            setOpenProject(true);
+            setCurrentCommand('');
+            setOpenResume(false);
+            return;
+        case "cd Resume":
+            setCd("Resume");
+            setCurrentCommand('');
+            setOpenResume(true);
+            return;
+        case "cd About_Me":
+            break;
+        case "cd Game":
+            break;
+        case "clear":
+            setCommandHistory([]);
+            setCurrentCommand('');
+            setOpenProject(false);
+            setOpenResume(false);
+            return;
+        case "man":
+            response = "Commands: ls, cd {directory}, man, and clear.\n ls: shows a list of items in current directory. \n cd: followed by the name of the directory you want to enter changes the directory \n clear: clears the terminal of all command history";
+            break;
+        default:
+            response = `Unknown Command ${currentCommand}`
     }
-  }, [inputSubmit]);
+    // Save the current command and response to the history
+    setCommandHistory((prevHistory) => [...prevHistory, { command: currentCommand, response }]);
+
+    // Clear the input field for the next command
+    setCurrentCommand('');
+  };
 
   return (
-    <div className="command-line">
-      <section className="terminal-explain">
-        <div style={{ whiteSpace: 'pre-wrap' }}>
-          {output.map((item, index) => (
-            <React.Fragment key={index}>
-              <p className="terminal-entry">{item.input}</p>
-              {(item.output === "Projects Resume About_Me Game" && <p className="terminal-examples">{item.output}</p>) || 
-              (item.output && <p className="terminal-error">{item.output}</p>)}
-            </React.Fragment>
-          ))}
+    <div className="command-line" onClick={e=> {inputRef.current.focus();}}>
+      {commandHistory.map((entry, index) => (
+        <div key={index}>
+          <span className="terminal-entry">Happy-Recruiter-Computer:Calum_Portfolio$ {entry.command}</span>
+          <br />
+          <span className="terminal-error">{entry.response}</span>
         </div>
-
-        {/* The following block displays the input prompt for the current input */}
+      ))}
+      {openProject && <ProjectsScreen />}
+      {openResume && <Resume />}
         <div className="blinking-cursor-container">
           <p className="terminal-entry">Happy-Recruiter-Computer:Calum_Portfolio$</p>
-          <span className="user-input">{inputValue}</span>
+          <span className="user-input">{currentCommand}</span>
           <input
             type="text"
             style={{ width: '10px', minWidth: '10px', caretColor: 'transparent', opacity: 0 }}
-            onChange={handleInput}
-            onKeyPress={handleKeyPress}
-            value={inputValue}
+            onChange={handleInputChange}
+            onKeyPress={handleEnterKeyPress}
+            value={currentCommand}
             ref={inputRef}
           />
           <span className="blinking-cursor" />
         </div>
-      </section>
     </div>
   );
 };
