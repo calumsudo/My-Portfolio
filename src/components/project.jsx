@@ -1,13 +1,19 @@
-// Project.js
 import React from 'react';
 
-const Project = ({ imageUrl, title, description }) => {
+const Project = ({ imageUrl, title, description, github, weblink, liveDemo}) => {
   return (
-    <div className="project">
-      <img src={imageUrl} alt={title} className="project-image" />
-      <h3 className="project-title">{title}</h3>
-      <p className="project-description">{description}</p>
+    <div class="card">
+  <img src={imageUrl} alt={title} className="project-image" />
+  <div class="card__content">
+    <p class="card__title">{title}</p>
+    <p class="card__description">{description}</p>
+    <div class="card-button-container">
+      {liveDemo ? <a class="card__button" href={weblink} target="_blank" rel="noreferrer">Live Demo</a> : <a class="card__button__no">Live Demo</a>}
+      <a class="card__button secondary" href={github} target="_blank" rel="noreferrer">Source Code</a>
     </div>
+  </div>
+</div>
+
   );
 };
 
