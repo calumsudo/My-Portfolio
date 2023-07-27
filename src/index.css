@@ -223,6 +223,13 @@ body::-webkit-scrollbar-thumb {
   width: 30%;
   border-radius: 8px;
 }
+/* Resume Screen */
+.resume-screen {
+  background-color: #89bbfe;
+  width: 100vw;
+  height: 100vh;
+  margin-left: -10px;
+}
 
 
 /* Terminal & CommandLine */

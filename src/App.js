@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Terminal from './screens/terminal';
 import CommandLine from './screens/commandline';
 import ProjectsScreen from './screens/welcome/projectScreen';
+import ResumeScreen from './screens/welcome/resumeScreen';
 import Resume from './screens/resume';
 import AboutMe from './screens/aboutMe';
 import Game from './screens/game';
@@ -25,7 +26,7 @@ const App = () => {
 
   return (
     <div>
-      {currentScreen === 'welcome' && <div><WelcomePage handleButtonClick={handleButtonClick} /> <ProjectsScreen /> <Resume /> <AboutMe/> <Game /> </div>}
+      {currentScreen === 'welcome' && <div><WelcomePage handleButtonClick={handleButtonClick} /> <ProjectsScreen /> <ResumeScreen /> </div>}
       {currentScreen === 'terminal' && <Terminal handleClear={handleClear} handlePageChange={handlePageChange}/>}
       {currentScreen === 'command-line' && <CommandLine />}
       {currentScreen === 'Projects' && <ProjectsScreen handlePageChange={handlePageChange}/>}

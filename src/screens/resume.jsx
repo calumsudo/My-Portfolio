@@ -1,7 +1,5 @@
 import BasicMenu from "../components/menu";
 const Resume = ({handlePageChange}) => {
-
-
     const handlePage = (page) => {
         handlePageChange(page);
       }
