@@ -22,19 +22,17 @@ const App = () => {
     setCurrentScreen(handlePageChange);
   }
 
-  console.log(currentScreen);
+  //TODO: Add Scroll Button on Welcome Page so users know they can just scroll down
 
   return (
-    <div>
-      {currentScreen === 'welcome' && <div><WelcomePage handleButtonClick={handleButtonClick} /> <ProjectsScreen /> <ResumeScreen /> </div>}
+    <div className='home-page'>
+      {currentScreen === 'welcome' && <div className='home-page'><WelcomePage handleButtonClick={handleButtonClick} /> <ProjectsScreen /> <ResumeScreen /> <AboutMe /></div>}
       {currentScreen === 'terminal' && <Terminal handleClear={handleClear} handlePageChange={handlePageChange}/>}
       {currentScreen === 'command-line' && <CommandLine />}
       {currentScreen === 'Projects' && <ProjectsScreen handlePageChange={handlePageChange}/>}
       {currentScreen === 'Resume' && <Resume handlePageChange={handlePageChange}/>}
       {currentScreen === 'About Me' && <AboutMe handlePageChange={handlePageChange}/>}
       {currentScreen === 'Game' && <Game handlePageChange={handlePageChange}/>}
-      
-
     </div>
   );
 };

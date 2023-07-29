@@ -1,20 +1,21 @@
 /* Welcome Page Styles*/
-/* Hide the vertical and horizontal scrollbars for the body in WebKit-based browsers */
+* {
+  margin: 0;
+  padding: 0;
+}
+.home-page {
+  position: sticky;
+  width:100%;
+  height: 100%;
+}
 body::-webkit-scrollbar {
   width: 0em; /* Set the width of the scrollbar (adjust as needed) */
   height: 0em;
 }
 
-body::-webkit-scrollbar-track {
-  background: transparent; /* Set the background color of the scrollbar track */
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: transparent; /* Set the color of the scrollbar thumb */
-}
 /* Set the container div to cover the entire viewport */
 .welcome-container {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden; /* Hide scrollbars, but keep scrolling enabled within the container */
   margin: 0;
@@ -22,20 +23,10 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: -10px;
 }
 
-/* Enable scrolling within the container */
-.welcome-container-content {
-  display: flex; /* Use flex to take up the entire space */
-  width: 100%;
-  height: 100%;
-  overflow: auto; /* Enable scrolling */
-  margin: 0;
-  padding: 0;
-}
-
 /* Use the background-size property to cover the entire container */
 .welcome-image {
   display: block; /* Ensure the image takes up the entire space within its container */
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -65,32 +56,36 @@ body::-webkit-scrollbar-thumb {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 12px 20px;
   cursor: pointer;
 }
 
 /* Media query for smaller screens */
 @media (max-width: 1800px) {
   .intro {
-    font-size: 20px; /* Adjust the font size for smaller screens */
+    font-size: 1.1111em; /* Approximately 20px for 1800px wide screen */
   }
-
 }
-@media (max-width: 1450px) {
+
+@media (max-width: 500px) {
   .intro {
-    font-size: 12px; /* Adjust the font size for smaller screens */
-  }
-  .click-here{
-    padding: 12px 20px;
+    font-size: 0.75em; /* Approximately 15px for 500px wide screen */
   }
 }
 
+@media (max-width: 400px) {
+  .intro {
+    font-size: 0.65em; /* Approximately 13px for 400px wide screen */
+  }
+}
 /* Projects and Project Screen */
 .project-screen{
   background-color: #61C9A8;
-  width: 100vw;
+  width: 100%;
   height: 200vh;
-  margin-left: -10px;
+
 }
+.resume-screen-title,
 .project-screen-title{
   text-align: center;
   margin: 0;
@@ -226,10 +221,41 @@ body::-webkit-scrollbar-thumb {
 /* Resume Screen */
 .resume-screen {
   background-color: #89bbfe;
-  width: 100vw;
-  height: 100vh;
-  margin-left: -10px;
+  width: 100%;
+  height: auto;
 }
+
+.resume-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* AboutMe & Contact Screen */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Terminal & CommandLine */
