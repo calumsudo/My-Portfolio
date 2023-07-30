@@ -1,10 +1,14 @@
+import React from "react";
+import { Box, Paper} from '@mui/material';
 
-const AboutMe = ({handlePageChange}) => {
+const AboutMe = () => {
 
     return(
-        <div>
-            AboutMe
-        </div>
+        <Box >
+            <Paper elevation={3} sx={{height:"100vh"}}>
+                About Me
+            </Paper>
+        </Box>
     );
 }
 

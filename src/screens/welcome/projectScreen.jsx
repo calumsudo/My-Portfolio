@@ -1,22 +1,16 @@
 // ProjectsScreen.js
-import React, { useState } from 'react';
+import React from 'react';
+import { Grid, useMediaQuery } from '@mui/material';
 import Project from "../../components/project";
-import BasicMenu from '../../components/menu';
 import nws from "../../assets/Notes/NotesWelcomeScreen.png";
-import fbnr from "../../assets/icons/FBnR.png";
 import gpt from "../../assets/GPT/GPT.png";
 import bartender from "../../assets/Bartender/Bartender.png"
 import os from "../../assets/OperatingSystem/OperatingSystem.png"
 import punkin from "../../assets/PunkinChunkin/Punkin.png"
 import BlackJack from "../../assets/BlackJack/BlackJack.jpg"
-const ProjectsScreen = ({handlePageChange, handleMenuClicked}) => {
-    const [selectedProject, setSelectedProject] = useState(null);
-
-
-    const handlePage = (page) => {
-        handlePageChange(page);
-      }
-
+import Breese from "../../assets/Breese.png"
+import Plot from "../../assets/Plotting.png"
+const ProjectsScreen = () => {
   const projects = [
     {
       title: 'Notes App',
@@ -37,6 +31,18 @@ const ProjectsScreen = ({handlePageChange, handleMenuClicked}) => {
       imageUrl: bartender,
       description: 'Description for Project 3',
       github: 'https://github.com/calumsudo/notes-app',
+    },
+    {
+      title: 'Breese Architects',
+      imageUrl: Breese,
+      description: 'Designed their new website, summer 2023.',
+    },
+    {
+      title: 'Plotting',
+      imageUrl: Plot,
+      description: 'Geographically plots world map based on world energy consumption using pandas, plotly, and python. The program plots things such as the GDP per country on the map, a scatter plot showing oil change percentage, and a bar plot depicting coal production change percentage.',
+      github: 'https://github.com/calumsudo/Geographical-Plotting',
+    
     },
     {
       title: 'Python Physics Game',
@@ -76,26 +82,26 @@ const ProjectsScreen = ({handlePageChange, handleMenuClicked}) => {
       },
   ];
 
-  const handleProjectClick = (index) => {
-    setSelectedProject(index);
-  };
 
-  const handleCloseExpandedView = () => {
-    setSelectedProject(null);
-  };
+  const isBreakpoint1087px = useMediaQuery('(max-width:1087px)');
+  const isBreakpoint1590px = useMediaQuery('(max-width:1590px)');
 
   return (
     <div className="project-screen">
       <h2 className="project-screen-title">PROJECTS</h2>
-    <div className="projects-container">
-      {projects.map((project, index) => (
-        <div key={index} onClick={() => handleProjectClick(index)}>
-          <Project {...project} />
-        </div>
-      ))}
+      <div className="projects-container">
+        <Grid container spacing={3}>
+          {projects.map((project, index) => (
+            <Grid item key={index} xs={12} sm={6} md={isBreakpoint1590px ? 6 : 4} sx={{
+              minWidth: isBreakpoint1087px ? '100%' : '300px',
+              maxWidth: isBreakpoint1087px ? '100%' : '400px',
+            }}>
+              <Project {...project} />
+            </Grid>
+          ))}
+        </Grid>
+      </div>
     </div>
-    </div>
-
   );
 };
 

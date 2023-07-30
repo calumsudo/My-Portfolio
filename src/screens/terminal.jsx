@@ -1,6 +1,5 @@
 import {useState, useEffect, useRef} from 'react';
 import BasicMenu from '../components/menu';
-import ProjectsScreen from './welcome/projectScreen';
 const Terminal = ({handleClear, handlePageChange}) => {
     const [inputValue, setInputValue] = useState('');
     const [inputSubmit, setInputSubmit] = useState('');

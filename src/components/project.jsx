@@ -8,7 +8,7 @@ const Project = ({ imageUrl, title, description, github, weblink, liveDemo}) => 
     <p class="card__title">{title}</p>
     <p class="card__description">{description}</p>
     <div class="card-button-container">
-      {liveDemo ? <a class="card__button" href={weblink} target="_blank" rel="noreferrer">Live Demo</a> : <a class="card__button__no">Live Demo</a>}
+      {liveDemo ? <a class="card__button" href={weblink} target="_blank" rel="noreferrer">Live Demo</a> : <a class="card__button__no" href="none">Live Demo</a>}
       <a class="card__button secondary" href={github} target="_blank" rel="noreferrer">Source Code</a>
     </div>
   </div>

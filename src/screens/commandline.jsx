@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProjectsScreen from './welcome/projectScreen';
-import Resume from './resume';
+import ResumeScreen from './welcome/resumeScreen';
 
 const CommandLine = () => {
     const [commandHistory, setCommandHistory] = useState([]);
     const [currentCommand, setCurrentCommand] = useState('');
-    const [cd, setCd] = useState('');
     const [openProject, setOpenProject] = useState(false);
     const [openResume, setOpenResume] = useState(false);
 
@@ -38,13 +37,11 @@ const CommandLine = () => {
             setOpenResume(false);
             break;
         case "cd Projects":
-            setCd("Projects");
             setOpenProject(true);
             setCurrentCommand('');
             setOpenResume(false);
             return;
         case "cd Resume":
-            setCd("Resume");
             setCurrentCommand('');
             setOpenResume(true);
             return;
@@ -81,7 +78,7 @@ const CommandLine = () => {
         </div>
       ))}
       {openProject && <ProjectsScreen />}
-      {openResume && <Resume />}
+      {openResume && <ResumeScreen />}
         <div className="blinking-cursor-container">
           <p className="terminal-entry">Happy-Recruiter-Computer:Calum_Portfolio$</p>
           <span className="user-input">{currentCommand}</span>
