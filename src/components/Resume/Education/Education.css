@@ -1,0 +1,101 @@
+.resume-left-card-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: #ffff;
+  font-family: 'Roboto', monospace;
+}
+
+.resume-left-card {
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+
+.resume-left-card .front-content {
+display: flex;
+flex-direction: column; /* To stack .front-content and .content vertically */
+align-items: center;
+justify-content: center;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.resume-left-card .front-content p {
+  font-size: 50px;
+  font-weight: 700;
+  opacity: 1;
+  background: #615d6c;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.resume-left-card .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #615d6c;
+  color: #e8e8e8;
+  border-radius: 5px;
+  transform: translateX(-96%);
+  padding: 20px; /* Add padding to create some space between the edges and content */
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  line-break: auto;
+}
+
+.resume-left-card .content h2,
+.resume-left-card .content h3,
+.resume-left-card .content h4 {
+  padding: 0;
+}
+
+.resume-left-card .content h2 {
+  font-size: 24px;
+  font-weight: 700;
+/* Add some space between headings */
+}
+
+.resume-left-card .content h3 {
+  font-size: 18px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.resume-left-card .content h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.resume-left-card .content h5 {
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.resume-left-card .content p {
+  padding-right: 30px;
+  font-weight: 400;
+}
+
+.resume-left-card:hover .content {
+  transform: translateY(0);
+}
+
+.resume-left-card:hover .front-content {
+  transform: translateX(-30%);
+}
+
+.resume-left-card:hover .front-content p {
+  opacity: 0;
+}

@@ -1,0 +1,15 @@
+.terminal-projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the grid items horizontally */
+    align-items: center; /* Center the grid items vertically */
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.project-titles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }

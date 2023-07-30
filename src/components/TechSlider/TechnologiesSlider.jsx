@@ -1,5 +1,5 @@
-import React from 'react';
-import './TechnologiesSlider.css'; // Create this CSS file for styling
+import React from 'react'
+import './TechnologiesSlider.css' // Create this CSS file for styling
 
 const TechnologiesSlider = ({ images }) => {
   return (
@@ -10,11 +10,15 @@ const TechnologiesSlider = ({ images }) => {
         ))}
 
         {images.map((imageUrl, index) => (
-          <img key={`duplicate-${index}`} src={imageUrl} alt={`Tech ${index}`} />
+          <img
+            key={`duplicate-${index}`}
+            src={imageUrl}
+            alt={`Tech ${index}`}
+          />
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TechnologiesSlider;
+export default TechnologiesSlider
