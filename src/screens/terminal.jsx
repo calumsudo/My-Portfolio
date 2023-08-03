@@ -31,24 +31,11 @@ const Terminal = ({ handleClear }) => {
         <h1>Welcome to my Portfolio</h1>
         <p className="terminal-description">
           This page will act as the terminal to navigate my app. If using the
-          command line scares you then I have conveniently added a menu bar in
-          the top left corner. If you are unfamiliar with using the command line
-          here are the basics.
-        </p>
-        <p className="terminal-commands">
-          To list the directories or in this case pages of my portfolio type the
-          command: ls To open a directory or page of the portfolio type the
-          command: cd followed by the name of the directory. Here are a few
-          examples of what that would look like
+          command line scares you then I have conveniently added a menu bar to the left. 
+          If you are unfamiliar with using the command line just type man. man is the command that acts like a manual and will show you all the commands that are available.
         </p>
         <br />
-        <p className="terminal-entry">
-          Happy-Recruiter-Computer:Calum_Portfolio$ ls
-        </p>
-        <p className="terminal-examples">Projects Resume About_Me A_Game</p>
-        <p className="terminal-entry">
-          Happy-Recruiter-Computer:Calum_Portfolio$ cd Projects
-        </p>
+        <br />
         <p className="terminal-entry">Type the word clear to begin.</p>
         <div className="blinking-cursor-container">
           <p className="terminal-entry">

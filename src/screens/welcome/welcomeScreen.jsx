@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import bg from '../../background.png'
 
 const WelcomePage = ({ handleButtonClick }) => {
@@ -6,7 +6,7 @@ const WelcomePage = ({ handleButtonClick }) => {
   const [shuffledText, setShuffledText] = useState('')
   const originalText = 'HI MY NAME IS CALUM'
   const [isHidden, setIsHidden] = useState(false)
-  let intervalId = null
+  const intervalIdRef = useRef(null); // Initialize a ref to store the intervalId
 
   function getRandomCharacter() {
     const characters =
@@ -15,14 +15,14 @@ const WelcomePage = ({ handleButtonClick }) => {
     return characters[randomIndex]
   }
 
-  function shuffleText() {
-    if (intervalId) return // Return if a shuffle is already in progress
+  const shuffleText = useCallback(() => {
+    if (intervalIdRef.current) return // Return if a shuffle is already in progress
 
     let count = 0
     const shuffleCount = 2
     const shuffleInterval = 100
 
-    intervalId = setInterval(() => {
+    intervalIdRef.current = setInterval(() => {
       const letters = originalText.split('')
       const newShuffledText = letters
         .map((char, index) => {
@@ -43,16 +43,16 @@ const WelcomePage = ({ handleButtonClick }) => {
 
       count++
       if (count >= (shuffleCount + 1) * letters.length) {
-        clearInterval(intervalId)
-        intervalId = null // Clear the interval ID
+        clearInterval(intervalIdRef.current)
+        intervalIdRef.current = null // Clear the interval ID
         setShuffledText(originalText)
       }
     }, shuffleInterval)
-  }
+  },[])
 
   function revertText() {
-    clearInterval(intervalId)
-    intervalId = null // Clear the interval ID
+    clearInterval(intervalIdRef.current)
+    intervalIdRef.current = null // Clear the interval ID
     setShuffledText(originalText)
   }
 
@@ -63,6 +63,16 @@ const WelcomePage = ({ handleButtonClick }) => {
       handleButtonClick()
     }, 1100)
   }
+  useEffect(() => {
+    // Run the shuffleText function on page load
+    shuffleText();
+
+    // Clean up the interval when the component unmounts
+    return () => {
+      clearInterval(intervalIdRef.current); // Access the intervalId from the ref
+      intervalIdRef.current = null; // Clear the ref value
+    };
+  }, [shuffleText]);
   return (
     <div className="welcome-container">
       <div

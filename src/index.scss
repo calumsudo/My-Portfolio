@@ -1,11 +1,17 @@
 
 @import 'animate.css';
 
+$primary-color: #ed9b40;
+
 @font-face {
   font-family: 'Prime Mono Round';
   src: url('./assets/fonts/prime-mono-round.ttf') format('tff');
 }
 
+@font-face {
+  font-family: 'REM';
+  src: url('./assets/fonts/REM/REM-Italic-VariableFont_wght.ttf') format('ttf');
+}
 
 /* Welcome Page Styles*/
 * {
@@ -94,7 +100,7 @@ body::-webkit-scrollbar {
 }
 .command-line {
   position: relative;
-  margin-left: -40px;
+  margin-left: -80px;
   height: 100vh; /* Set a fixed height for the container */
   overflow-y: auto; /* Enable vertical scrolling when content overflows */
   display: flex;
@@ -186,10 +192,6 @@ body::-webkit-scrollbar {
 
 
 
-h1 {
-  text-align:center;
-  font-size: x-large;
-}
 
 
 

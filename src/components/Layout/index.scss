@@ -1,6 +1,23 @@
 .page {
-    width: 100%;
+    width: calc(100% - 80px); /* Subtract the width of the sidebar from the total width */
     height: 100%;
-    position:absolute;
-    padding-left: 40px;
-}
+    position: absolute;
+    top: 0;
+    left: 80px; /* Set the left position to match the width of the sidebar */
+    padding: 0; /* Remove padding to prevent additional spacing */
+    background-color: #6f9ab7;
+  }
+  
+.container {
+  width: 100%;
+  will-change: contents;
+  height: 90%;
+  min-height: 566px;
+  position: absolute;
+  opacity: 0;
+  margin: 0 auto;
+  z-index: 1;
+  transform-style: preserve-3d;
+  animation: fadeIn 1s forwards;
+  animation-delay: 1s;
+} 

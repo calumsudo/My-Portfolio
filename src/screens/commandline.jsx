@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import TerminalProjects from './TerminalProjects/TerminalProjects'
 import { projects } from '../screens/TerminalProjects/TerminalProjects'
+import Education from '../components/Resume/Education/Education'
+import Experience from '../components/Resume/Experience/Experience'
 
 const CommandLine = ({ handleExit }) => {
   const [commandHistory, setCommandHistory] = useState([])
@@ -50,20 +52,33 @@ const CommandLine = ({ handleExit }) => {
           setDirectory('Happy-Recruiter-Computer:Calum_Portfolio/Projects$')
           break
         case 'cd Resume':
+          setDirectory('Happy-Recruiter-Computer:Calum_Portfolio/Resume$')
           break
         case 'cd About_Me':
+          setDirectory('Happy-Recruiter-Computer:Calum_Portfolio/About_Me$')
           break
         case 'clear':
           setCommandHistory([])
           setCurrentCommand('')
           return
         case 'man':
-          response = `Commands: ls, cd {directory}, man, and clear.
+          response = `Commands: ls, cd {directory}, man, clear, exit, and open.
             ls: shows a list of items in the current directory.
-            cd: followed by the name of the directory you want to enter changes the directory.
+            cd: followed by the name of the directory you want to enter changes the directory. To return to the main directory just type "cd".
             clear: clears the terminal of all command history.
             exit: exit the terminal.
-            open [file_name]: The open command opens a file, just as if you had double-clicked the file's icon.`
+            open [file_name]: The open command opens a file, just as if you had double-clicked the file's icon.
+            For further explanation on how to operate the command line just type help
+            `
+          break
+        case 'help':
+          response = `
+    To start, type "ls" and press Enter to see a list of directories in the home folder.
+    To access a directory, type "cd" followed by the name of the directory you want to enter. For example: "cd Projects".
+    To see what projects are in the directory, type "ls" to display all the projects.
+    To open a project, type "open" followed by the name of the project you want to open. For example: "open Notes_App".
+    If you find the command line confusing, type "exit" to exit the current session.
+          `
           break
         case 'exit':
           handleExit()
@@ -186,14 +201,25 @@ const CommandLine = ({ handleExit }) => {
           setCurrentCommand('')
           setDirectory('Happy-Recruiter-Computer:Calum_Portfolio$')
           return
-        case 'man':
-          response = `Commands: ls, cd {directory}, man, and clear.
-            ls: shows a list of items in the current directory.
-            cd: followed by the name of the directory you want to enter changes the directory.
-            clear: clears the terminal of all command history.
-            exit: exit the terminal.
-            open [file_name]: The open command opens a file, just as if you had double-clicked the file's icon.`
-          break
+          case 'man':
+            response = `Commands: ls, cd {directory}, man, clear, exit, and open.
+              ls: shows a list of items in the current directory.
+              cd: followed by the name of the directory you want to enter changes the directory. To return to the main directory just type "cd".
+              clear: clears the terminal of all command history.
+              exit: exit the terminal.
+              open [file_name]: The open command opens a file, just as if you had double-clicked the file's icon.
+              For further explanation on how to operate the command line just type help
+              `
+            break
+          case 'help':
+            response = `
+      To start, type "ls" and press Enter to see a list of directories in the home folder.
+      To access a directory, type "cd" followed by the name of the directory you want to enter. For example: "cd Projects".
+      To see what projects are in the directory, type "ls" to display all the projects.
+      To open a project, type "open" followed by the name of the project you want to open. For example: "open Notes_App".
+      If you find the command line confusing, type "exit" to exit the current session.
+            `
+            break
         case 'exit':
           handleExit()
           break
@@ -201,7 +227,90 @@ const CommandLine = ({ handleExit }) => {
           response = `Unknown Command ${currentCommand}`
       }
     }
-
+    if (directory === 'Happy-Recruiter-Computer:Calum_Portfolio/Resume$'){
+      switch (currentCommand) {
+        case "ls":
+          response =
+          'Education\u00A0\u00A0\u00A0\u00A0Experience\u00A0\u00A0\u00A0\u00A0Extracurriculars'
+        break
+        case 'cd':
+          setDirectory('Happy-Recruiter-Computer:Calum_Portfolio$')
+          break
+          case 'clear':
+            setCommandHistory([])
+            setCurrentCommand('')
+            return
+          case 'man':
+            response = `Commands: ls, cd {directory}, man, clear, exit, and open.
+              ls: shows a list of items in the current directory.
+              cd: followed by the name of the directory you want to enter changes the directory. To return to the main directory just type "cd".
+              clear: clears the terminal of all command history.
+              exit: exit the terminal.
+              open [file_name]: The open command opens a file, just as if you had double-clicked the file's icon.
+              For further explanation on how to operate the command line just type help
+              `
+            break
+          case 'help':
+            response = `
+      To start, type "ls" and press Enter to see a list of directories in the home folder.
+      To access a directory, type "cd" followed by the name of the directory you want to enter. For example: "cd Projects".
+      To see what projects are in the directory, type "ls" to display all the projects.
+      To open a project, type "open" followed by the name of the project you want to open. For example: "open Notes_App".
+      If you find the command line confusing, type "exit" to exit the current session.
+            `
+            break
+          case 'open Education':
+            response = <Education />
+            break
+            case 'open Experience':
+              response = <Experience />
+              break
+          case 'exit':
+            handleExit()
+            break
+        default:
+          response = `Unknown Command ${currentCommand}`
+      }
+    }
+    if (directory === 'Happy-Recruiter-Computer:Calum_Portfolio/About_Me$'){
+      switch (currentCommand) {
+        case "ls":
+          response =
+          'Education\u00A0\u00A0\u00A0\u00A0Experience\u00A0\u00A0\u00A0\u00A0Extracurriculars'
+        break
+        case 'cd':
+          setDirectory('Happy-Recruiter-Computer:Calum_Portfolio$')
+          break
+        case 'clear':
+          setCommandHistory([])
+          setCurrentCommand('')
+          return
+        case 'man':
+          response = `Commands: ls, cd {directory}, man, clear, exit, and open.
+            ls: shows a list of items in the current directory.
+            cd: followed by the name of the directory you want to enter changes the directory. To return to the main directory just type "cd".
+            clear: clears the terminal of all command history.
+            exit: exit the terminal.
+            open [file_name]: The open command opens a file, just as if you had double-clicked the file's icon.
+            For further explanation on how to operate the command line just type help
+            `
+          break
+        case 'help':
+          response = `
+    To start, type "ls" and press Enter to see a list of directories in the home folder.
+    To access a directory, type "cd" followed by the name of the directory you want to enter. For example: "cd Projects".
+    To see what projects are in the directory, type "ls" to display all the projects.
+    To open a project, type "open" followed by the name of the project you want to open. For example: "open Notes_App".
+    If you find the command line confusing, type "exit" to exit the current session.
+          `
+          break
+        case 'exit':
+          handleExit()
+          break
+        default:
+          response = `Unknown Command ${currentCommand}`
+      }      
+    }
     // Save the current command and response to the history
     setCommandHistory((prevHistory) => [
       ...prevHistory,
