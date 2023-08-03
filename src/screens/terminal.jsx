@@ -31,8 +31,10 @@ const Terminal = ({ handleClear }) => {
         <h1>Welcome to my Portfolio</h1>
         <p className="terminal-description">
           This page will act as the terminal to navigate my app. If using the
-          command line scares you then I have conveniently added a menu bar to the left. 
-          If you are unfamiliar with using the command line just type man. man is the command that acts like a manual and will show you all the commands that are available.
+          command line scares you then I have conveniently added a menu bar to
+          the left. If you are unfamiliar with using the command line just type
+          man. man is the command that acts like a manual and will show you all
+          the commands that are available.
         </p>
         <br />
         <br />

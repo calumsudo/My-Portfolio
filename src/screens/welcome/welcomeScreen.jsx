@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import bg from '../../background.png'
 
 const WelcomePage = ({ handleButtonClick }) => {
@@ -6,7 +6,7 @@ const WelcomePage = ({ handleButtonClick }) => {
   const [shuffledText, setShuffledText] = useState('')
   const originalText = 'HI MY NAME IS CALUM'
   const [isHidden, setIsHidden] = useState(false)
-  const intervalIdRef = useRef(null); // Initialize a ref to store the intervalId
+  const intervalIdRef = useRef(null) // Initialize a ref to store the intervalId
 
   function getRandomCharacter() {
     const characters =
@@ -48,7 +48,7 @@ const WelcomePage = ({ handleButtonClick }) => {
         setShuffledText(originalText)
       }
     }, shuffleInterval)
-  },[])
+  }, [])
 
   function revertText() {
     clearInterval(intervalIdRef.current)
@@ -65,14 +65,14 @@ const WelcomePage = ({ handleButtonClick }) => {
   }
   useEffect(() => {
     // Run the shuffleText function on page load
-    shuffleText();
+    shuffleText()
 
     // Clean up the interval when the component unmounts
     return () => {
-      clearInterval(intervalIdRef.current); // Access the intervalId from the ref
-      intervalIdRef.current = null; // Clear the ref value
-    };
-  }, [shuffleText]);
+      clearInterval(intervalIdRef.current) // Access the intervalId from the ref
+      intervalIdRef.current = null // Clear the ref value
+    }
+  }, [shuffleText])
   return (
     <div className="welcome-container">
       <div
