@@ -1,6 +1,15 @@
-.container-contact-page {
-    background-color: #ed9b40;
+.contact-page {
     height: 100vh;
+    width: 100%;
+    will-change: contents;
+    min-height: 566px;
+    position: absolute;
+    opacity: 0;
+    margin: 0 auto;
+    z-index: 1;
+    transform-style: preserve-3d;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1s;
 }
 
 .text-zone {

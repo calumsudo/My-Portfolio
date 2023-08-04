@@ -1,0 +1,46 @@
+.about-page {
+    .text-zone {
+        position: absolute;
+        left: 10%;
+        top: 30%;
+        transform: translateY(-50%);
+        width: 55%;
+        max-height: 90%;
+        margin-top: 10%;  
+         
+
+        h1 {
+            color: #fff;
+            font-size: 60px;
+            margin: 0;
+            font-family:'Titillium';
+            font-weight: 400;
+            
+        }     
+
+        p {
+            color: #fff;
+            font-size: 30px;
+            animation: fadeIn 1s 1.8s backwards;
+        }
+    }
+
+    .decorator-box {
+        background-color: #ED9B40;
+        height: 70%;
+        width: 5%;
+        margin-left: auto;
+        margin-right: 150px;
+        position: relative; 
+        animation: fadeInDown 1s 1.8s backwards;
+    }
+    
+    .decorator-box2 {
+        background-color: #17DBB3;
+        height: 70%;
+        width: 50%;
+        position: absolute; 
+        left: -25%; 
+        animation: fadeInDown 1s 1.8s backwards;
+    }
+}

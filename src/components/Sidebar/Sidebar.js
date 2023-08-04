@@ -7,6 +7,7 @@ import {
   faEnvelope,
   faGrip,
   faScroll,
+  faComputer,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconButton } from '@mui/material'
@@ -46,6 +47,14 @@ const Sidebar = () => {
           to="/projects"
         >
           <FontAwesomeIcon icon={faGrip} color="#615d6c" />
+        </NavLink>
+        <NavLink
+          exact="true"
+          activeclassname="active"
+          className="terminal-link"
+          to="/terminal-simulator"
+        >
+          <FontAwesomeIcon icon={faComputer} color="#615d6c" />
         </NavLink>
         <NavLink
           exact="true"

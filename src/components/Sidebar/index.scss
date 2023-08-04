@@ -96,6 +96,13 @@
             }
         }
 
+        a.terminal-link {
+            &:after {
+                content: 'TERMINAL';
+            }
+        }
+
+
         a.contact-link {
             &:after {
                 content: 'CONTACT';

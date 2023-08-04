@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
-import TerminalProjects from './TerminalProjects/TerminalProjects'
-import { projects } from '../screens/TerminalProjects/TerminalProjects'
-import Education from '../components/Resume/Education/Education'
-import Experience from '../components/Resume/Experience/Experience'
+import TerminalProjects from '../../components/TerminalProjects/TerminalProjects'
+import { projects } from '../../components/TerminalProjects/TerminalProjects'
+import Education from '../../components/Resume/Education/Education'
+import Experience from '../../components/Resume/Experience/Experience'
 
 const CommandLine = ({ handleExit }) => {
   const [commandHistory, setCommandHistory] = useState([])

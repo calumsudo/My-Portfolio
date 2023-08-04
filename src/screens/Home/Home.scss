@@ -24,7 +24,6 @@ src: url('../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('tt
         margin: 0;
         font-family:'Titillium';
         font-weight: 400;
-
     }
 
     h2 {
@@ -59,11 +58,11 @@ src: url('../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('tt
 }
 
 
-}
+
 
 .stage-cube-cont {
-    width: 70%;
-    height: 100%;
+    width: 60%;
+    height: 70%;
     top: 0;
     padding-top: 18%;
     margin-left: 0;
@@ -91,7 +90,7 @@ src: url('../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('tt
         display: flex;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 0 20px 0px lightyellow;
+        box-shadow: 0 0 20px 0px #ed9c40b3;
     }
 
     .face1 {
@@ -135,3 +134,27 @@ src: url('../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('tt
         transform: rotateY(90deg);
     }
 }
+
+.decorator-box {
+    background-color: #ED9B40;
+    height: 7%;
+    width: 50%;
+    margin-bottom: auto;
+    margin-top: 150px;
+    position: relative; 
+    opacity: 0;
+    animation: fadeInLeft 1s 1.8s forwards; /* Use 'forwards' to maintain the final animation state */
+}
+
+.decorator-box2 {
+    background-color: #17DBB3;
+    height: 50%;
+    width: 70%;
+    position: absolute; 
+    top: 75%;
+    animation: fadeInLeft 1s 1.8s forwards; /* Use 'forwards' to maintain the final animation state */
+}
+
+
+}
+

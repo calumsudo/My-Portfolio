@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './aboutMe.scss'
+import './Home.scss'
 import { Link } from 'react-router-dom'
 import AnimatedLetters from '../../components/AnimatedLetters'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,7 +11,7 @@ import {
   faPython,
   faReact,
 } from '@fortawesome/free-brands-svg-icons'
-const AboutMe = () => {
+const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   const nameArray = [
     ' ',
@@ -56,33 +56,31 @@ const AboutMe = () => {
   }, [])
 
   return (
-    <div style={{ backgroundColor: '#6f9ab7' }}>
-      <div className="container intro-page">
-        <div className="text-zone">
-          <h1>
-            <span className={letterClass}>H</span>
-            <span className={`${letterClass} _12`}>i,</span>
-            <br />
-            <span className={`${letterClass} _13`}>I</span>
-            <span className={`${letterClass} _14`}>'m </span>
+    <div className="container intro-page">
+      <div className="text-zone">
+        <h1>
+          <span className={letterClass}>H</span>
+          <span className={`${letterClass} _12`}>i,</span>
+          <br />
+          <span className={`${letterClass} _13`}>I</span>
+          <span className={`${letterClass} _14`}>'m </span>
 
-            <AnimatedLetters
-              letterClass={letterClass}
-              strArray={nameArray}
-              idx={15}
-            />
-            <br />
-            <AnimatedLetters
-              letterClass={letterClass}
-              strArray={jobArray}
-              idx={27}
-            />
-          </h1>
-          <h2>Full Stack Web Developer</h2>
-          <Link to="/contact" className="flat-button">
-            CONTACT ME
-          </Link>
-        </div>
+          <AnimatedLetters
+            letterClass={letterClass}
+            strArray={nameArray}
+            idx={15}
+          />
+          <br />
+          <AnimatedLetters
+            letterClass={letterClass}
+            strArray={jobArray}
+            idx={27}
+          />
+        </h1>
+        <h2>Full Stack Web Developer</h2>
+        <Link to="/contact" className="flat-button">
+          CONTACT ME
+        </Link>
       </div>
 
       <div className="stage-cube-cont">
@@ -107,8 +105,12 @@ const AboutMe = () => {
           </div>
         </div>
       </div>
+
+      <div className="decorator-box">
+        <div className="decorator-box2" />
+      </div>
     </div>
   )
 }
 
-export default AboutMe
+export default Home
