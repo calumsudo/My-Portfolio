@@ -15,13 +15,13 @@ const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   const nameArray = [
     ' ',
-    'c',
+    'C',
     'a',
     'l',
     'u',
     'm',
     ' ',
-    's',
+    'S',
     'i',
     'e',
     'm',
@@ -29,7 +29,7 @@ const Home = () => {
     'r',
   ]
   const jobArray = [
-    's',
+    'S',
     'o',
     'f',
     't',
@@ -38,7 +38,7 @@ const Home = () => {
     'r',
     'e',
     ' ',
-    'e',
+    'E',
     'n',
     'g',
     'i',

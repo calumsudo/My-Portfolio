@@ -1,0 +1,201 @@
+$smallScreen: 1242px;
+
+.resume-page {
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  margin: 0 auto;
+  z-index: 1;
+  transform-style: preserve-3d;
+  animation: fadeIn 1s forwards;
+  animation-delay: 1s;
+  
+  .text-zone {
+      position: absolute;
+      left: 10%;
+      top: 10%;
+      transform: translateY(-50%);
+      max-height: 90%;
+      margin-top: 10%;  
+      
+      h1 {
+          color: #fff;
+          font-size: 60px;
+          margin: 0;
+          font-family:'Good Timing';
+          font-weight: 400;
+          
+      }     
+
+      h2 {
+          color: #fff;
+          font-size: 30px;
+          font-family: 'Roboto Thin';
+          letter-spacing: 2px;
+      }
+  }
+
+  .pdf-downloader {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 20px; /* Add padding to the right side */
+  
+    img {
+      filter: invert(100%);
+    }   
+  
+    h2 {
+      font-size: 30px;
+      font-family: 'Roboto Thin';
+      letter-spacing: 2px;
+      text-decoration: none;
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    @media (max-width: $smallScreen) {
+      .pdf-downloader {
+        top: 0;
+        right: 0;
+      }
+      img {
+        width: 50%;
+        margin-top: 100px;
+      }   
+      h2 {
+        visibility: hidden;
+      }
+  }
+  }
+  
+  
+
+.decorator-box {
+  background-color: #ED9B40;
+  height: 70px;
+  width: 50%;
+  margin-bottom: auto;
+  margin-top: 700px;
+  position: relative; 
+  opacity: 0;
+  animation: fadeInLeft 1s 1.8s forwards; /* Use 'forwards' to maintain the final animation state */
+}
+
+.decorator-box2 {
+  background-color: #17DBB3;
+  height: 50%;
+  width: 70%;
+  position: absolute; 
+  top: -25%;
+  animation: fadeInLeft 1s 1.8s forwards; /* Use 'forwards' to maintain the final animation state */
+}
+
+.education {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+
+  .delaware-logo {
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 30%;
+    height: 30%;
+    align-self: center; 
+  }
+
+  .education-content {
+    padding: 150px; /* Add some padding to the content */
+    text-align: right; /* Align content to the right side */
+  }
+
+  h1 {
+      color: #fff;
+      font-size: 60px;
+      margin: 0;
+      font-family:'Good Timing';
+      font-weight: 400;
+      
+  }     
+
+  h2 {
+      color: #fff;
+      font-size: 30px;
+      font-family: 'Roboto Thin';
+      letter-spacing: 2px;
+  }  
+
+  img {
+    width: 40%;
+    display: block; 
+    margin: 0 auto; 
+  }
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 30px;
+    font-family: 'Roboto Thin';
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 10px; 
+  }
+}
+
+.bootcamp-section {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: calc(100% + 500px); /* Position below the existing sections */
+  display: flex;
+  justify-content: flex-start;
+
+  .bootcamp-content {
+    padding: 150px; /* Add some padding to the content */
+    text-align: left;
+  }
+
+  h1 {
+    color: #fff;
+    font-size: 60px;
+    margin: 0;
+    font-family: 'Good Timing';
+    font-weight: 400;
+  }
+    h2 {
+      color: #fff;
+      font-size: 30px;
+      font-family: 'Roboto Thin';
+      letter-spacing: 2px;
+  }  
+}
+
+
+.decorator-box3 {
+  background-color: #ED9B40;
+  height: 70px;
+  width: 70%; /* Make it longer */
+  margin-bottom: auto;
+  margin-top: 700px;
+  margin-right: 0; /* Remove margin on the right */
+  position: relative;
+  opacity: 0;
+  animation: fadeInRight 1s 1.8s forwards;
+}
+
+.decorator-box4 {
+  background-color: #17DBB3;
+  height: 50%;
+  width: 50%; /* Adjust width */
+  position: absolute;
+  top: -25%;
+  right: 0; /* Position it to the right */
+  animation: fadeInRight 1s 1.8s forwards;
+}
+
