@@ -1,14 +1,23 @@
-@font-face {
-    font-family: 'REM';
-    src: url('../../assets/fonts/REM/REM-VariableFont_wght.ttf') format('ttf');
-  }
-  
-@font-face {
-font-family: 'Titillium';
-src: url('../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('ttf');
-}
+.home-page {
+    overflow: hidden;
+    .decorator-box {
+        margin-top: 10rem;
+        background-color: #ED9B40;
+        height: 3rem;
+        width: 80%; /* Use a percentage for responsiveness */
+        max-width: 50rem; /* Limit the maximum width */
+        opacity: 0;
+        animation: fadeInLeft 1s 1.8s forwards;
+    }
+    .decorator-box2 {
+        background-color: #17DBB3;
+        height: 50%; 
+        width: 60vw; 
+        max-width: 70%; 
+        position: absolute; 
+        top: 75%;
+    }
 
-.intro-page {
     .text-zone {
         position: absolute;
         left: 10%;
@@ -21,6 +30,14 @@ src: url('../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('tt
     h1 {
         color: #fff;
         font-size: 53px;
+        margin: 0;
+        font-family:'Good Timing';
+        font-weight: 400;
+    }
+
+    .mobile {
+        color: #fff;
+        font-size: 20px;
         margin: 0;
         font-family:'Good Timing';
         font-weight: 400;
@@ -41,7 +58,7 @@ src: url('../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('tt
         font-size: 13px;
         font-weight: 400;
         letter-spacing: 4px;
-        font-family:  'Titillium';
+        font-family:  'Roboto Regular';
         text-decoration: none;
         padding: 10px 18px;
         border: 1px solid #ed9b40;
@@ -55,10 +72,7 @@ src: url('../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('tt
             color: #615d6c;
         }
     }
-}
-
-
-
+    }
 
 .stage-cube-cont {
     width: 60%;
@@ -69,6 +83,8 @@ src: url('../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('tt
     position: absolute;
     right: 0;
     overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 1s 1.8s forwards;
 }
 
 .cubespinner {
@@ -133,28 +149,11 @@ src: url('../../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('tt
     83% {
         transform: rotateY(90deg);
     }
-}
-
-.decorator-box {
-    background-color: #ED9B40;
-    height: 7%;
-    width: 50%;
-    margin-bottom: auto;
-    margin-top: 150px;
-    position: relative; 
-    opacity: 0;
-    animation: fadeInLeft 1s 1.8s forwards; /* Use 'forwards' to maintain the final animation state */
-}
-
-.decorator-box2 {
-    background-color: #17DBB3;
-    height: 50%;
-    width: 70%;
-    position: absolute; 
-    top: 75%;
-    animation: fadeInLeft 1s 1.8s forwards; /* Use 'forwards' to maintain the final animation state */
+}        
 }
 
 
-}
+
+
+
 

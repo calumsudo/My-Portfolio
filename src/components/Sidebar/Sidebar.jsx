@@ -29,8 +29,6 @@ const Sidebar = () => {
     setMenuAnchor(null)
   }
   return (
-
-
     <div className="nav-bar">
       <Link className="logo" to="/">
         <img src={LogoCS} alt="logo" />
@@ -109,4 +107,3 @@ const Sidebar = () => {
 }
 
 export default Sidebar
-
