@@ -10,6 +10,9 @@ const About = () => {
       setLetterClass('text-animate-hover')
     }, 4000)
   }, [])
+
+  const isSmallScreen = window.innerWidth <= 1425
+
   return (
     <div className="container about-page">
       <div className="text-zone">
@@ -33,9 +36,13 @@ const About = () => {
         </p>
       </div>
 
-      <div className="decorator-box">
-        <div className="decorator-box2"></div>
-      </div>
+      {isSmallScreen ? (
+        <div />
+      ) : (
+        <div className="decorator-box">
+          <div className="decorator-box2"></div>
+        </div>
+      )}
     </div>
   )
 }

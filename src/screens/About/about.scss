@@ -25,6 +25,15 @@
             animation: fadeIn 1s 1.8s backwards;
             font-family: 'Roboto Light';
         }
+
+        @media (max-width: 1425px){
+            h1{
+                font-size: 20px;
+            }
+            p {
+                font-size: 15px;
+            }
+        }
     }
 
     .decorator-box {

@@ -28,6 +28,12 @@
     padding: 0; /* Remove padding to prevent additional spacing */
     background-color: #1F2232;
   }
+@media (max-width: 1425px){
+  .page {
+    left: 0;
+    width: 100%;
+  }
+}
   
 .container {
   width: 100%;

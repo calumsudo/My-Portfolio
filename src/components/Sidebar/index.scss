@@ -144,3 +144,12 @@
 .hide-navbar .nav-bar {
     display: none;
 }
+
+.mobile-nav {
+    position: absolute;
+    left: 20px;
+    top:-3rem!important ;
+    z-index: 10;
+    margin-top: 80px;
+    font-size: 30px;
+}
