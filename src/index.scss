@@ -94,14 +94,10 @@ body::-webkit-scrollbar {
   }
 }
 
-/* Terminal & CommandLine */
-.terminal-explain {
-
-}
 .command-line {
   position: relative;
-  margin-left: -80px;
   height: 100vh; /* Set a fixed height for the container */
+  width: 100%;
   overflow-y: auto; /* Enable vertical scrolling when content overflows */
   display: flex;
   flex-direction: column;

@@ -32,9 +32,11 @@ const Terminal = ({ handleClear }) => {
         <p className="terminal-description">
           This page will act as the terminal to navigate my app. If using the
           command line scares you then I have conveniently added a menu bar to
-          the left. If you are unfamiliar with using the command line just type
-          man. man is the command that acts like a manual and will show you all
-          the commands that are available.
+          the left. READ CAREFULLY: You must type the word clear to move into
+          the command line. If you do not know how to use a command line then
+          the following information is very important. After typing "clear" when
+          you get into the next page you can type the word "man" which is short
+          for manual. This will list all of the commands available to you!
         </p>
         <br />
         <br />

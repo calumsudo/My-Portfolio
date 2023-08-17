@@ -34,7 +34,7 @@ const Resume = () => {
                 </h1>
                 <br />
                 <h2>Download a copy of my resume</h2>
-                <h2>or scroll down to read the basics.</h2>
+                {/* <h2>or scroll down to read the basics.</h2> */}
               </Box>
             </Grid>
             <Grid item xs={12}>

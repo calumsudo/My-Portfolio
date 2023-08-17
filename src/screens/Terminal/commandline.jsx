@@ -3,6 +3,7 @@ import TerminalProjects from '../../components/TerminalProjects/TerminalProjects
 import { projects } from '../../components/TerminalProjects/TerminalProjects'
 import Education from '../../components/Resume/Education/Education'
 import Experience from '../../components/Resume/Experience/Experience'
+import ExtraCurriculars from '../../components/Resume/Extracurriculars/Extracurriculars'
 
 const CommandLine = ({ handleExit }) => {
   const [commandHistory, setCommandHistory] = useState([])
@@ -28,12 +29,6 @@ const CommandLine = ({ handleExit }) => {
     inputRef.current.focus()
   }, [])
 
-  useEffect(() => {
-    document.body.classList.add('hide-navbar')
-    return () => {
-      document.body.classList.remove('hide-navbar')
-    }
-  }, [])
   const processCommand = () => {
     // Process the currentCommand and generate the response
     // You can use a switch statement or any other method to handle different commands
@@ -90,8 +85,8 @@ const CommandLine = ({ handleExit }) => {
     if (directory === 'Happy-Recruiter-Computer:Calum_Portfolio/Projects$') {
       switch (currentCommand) {
         case 'ls':
-          response = `Notes_App\u00A0\u00A0\u00A0\u00A0GPT_Clone\u00A0\u00A0\u00A0\u00A0Breese_Architects\u00A0\u00A0\u00A0\u00A0Plotting\u00A0\u00A0\u00A0\u00A0Python_Physics_Game\u00A0\u00A0\u00A0\u00A0Operating_System\u00A0\u00A0\u00A0\u00A0Binary_Clock\u00A0\u00A0\u00A0\u00A0Black_Jack\u00A0
- DLL_Music_Playlist\u00A0\u00A0\u00A0\u00A0Hashmap_Author`
+          response = `Notes_App\u00A0\u00A0\u00A0\u00A0GPT_Clone\u00A0\u00A0\u00A0\u00A0Bartender\u00A0\u00A0\u00A0\u00A0Bunker_Wire\u00A0\u00A0\u00A0\u00A0Breese_Architects\u00A0\u00A0\u00A0\u00A0Plotting\u00A0\u00A0\u00A0\u00A0Python_Physics_Game\u00A0\u00A0\u00A0\u00A0Operating_System
+ Binary_Clock\u00A0\u00A0\u00A0\u00A0Black_Jack\u00A0DLL_Music_Playlist\u00A0\u00A0\u00A0\u00A0Hashmap_Author\u00A0\u00A0\u00A0\u00A0VHDL_Calculator`
           break
         case 'cd':
           setDirectory('Happy-Recruiter-Computer:Calum_Portfolio$')
@@ -117,7 +112,7 @@ const CommandLine = ({ handleExit }) => {
             />
           )
           break
-        case 'open Breese_Architects':
+        case 'open Bartender':
           response = (
             <TerminalProjects
               title={projects[2].title}
@@ -126,7 +121,7 @@ const CommandLine = ({ handleExit }) => {
             />
           )
           break
-        case 'open Plotting':
+        case 'open Bunker_Wire':
           response = (
             <TerminalProjects
               title={projects[3].title}
@@ -136,7 +131,7 @@ const CommandLine = ({ handleExit }) => {
             />
           )
           break
-        case 'open Python_Physics_Game':
+        case 'open Breese_Architects':
           response = (
             <TerminalProjects
               title={projects[4].title}
@@ -146,7 +141,7 @@ const CommandLine = ({ handleExit }) => {
             />
           )
           break
-        case 'open Operating_System':
+        case 'open Plotting':
           response = (
             <TerminalProjects
               title={projects[5].title}
@@ -156,7 +151,7 @@ const CommandLine = ({ handleExit }) => {
             />
           )
           break
-        case 'open Binary_Clock':
+        case 'open Python_Physics_Game':
           response = (
             <TerminalProjects
               title={projects[6].title}
@@ -166,7 +161,7 @@ const CommandLine = ({ handleExit }) => {
             />
           )
           break
-        case 'open Black_Jack':
+        case 'open Operating_System':
           response = (
             <TerminalProjects
               title={projects[7].title}
@@ -176,7 +171,7 @@ const CommandLine = ({ handleExit }) => {
             />
           )
           break
-        case 'open DLL_Music_Playlist':
+        case 'open Binary_Clock':
           response = (
             <TerminalProjects
               title={projects[8].title}
@@ -186,13 +181,43 @@ const CommandLine = ({ handleExit }) => {
             />
           )
           break
-        case 'open Hashmap_Author':
+        case 'open Black_Jack':
           response = (
             <TerminalProjects
               title={projects[9].title}
               img={projects[9].imageUrl}
               description={projects[9].description}
               github={projects[9].github}
+            />
+          )
+          break
+        case 'open DLL_Music_Playlist':
+          response = (
+            <TerminalProjects
+              title={projects[10].title}
+              img={projects[10].imageUrl}
+              description={projects[10].description}
+              github={projects[10].github}
+            />
+          )
+          break
+        case 'open Hashmap_Author':
+          response = (
+            <TerminalProjects
+              title={projects[11].title}
+              img={projects[11].imageUrl}
+              description={projects[11].description}
+              github={projects[11].github}
+            />
+          )
+          break
+        case 'open VHDL_Calculator':
+          response = (
+            <TerminalProjects
+              title={projects[12].title}
+              img={projects[12].imageUrl}
+              description={projects[12].description}
+              github={projects[12].github}
             />
           )
           break
@@ -265,6 +290,9 @@ const CommandLine = ({ handleExit }) => {
         case 'open Experience':
           response = <Experience />
           break
+        case 'open Extracurriculars':
+          response = <ExtraCurriculars />
+          break
         case 'exit':
           handleExit()
           break
@@ -275,8 +303,10 @@ const CommandLine = ({ handleExit }) => {
     if (directory === 'Happy-Recruiter-Computer:Calum_Portfolio/About_Me$') {
       switch (currentCommand) {
         case 'ls':
-          response =
-            'Education\u00A0\u00A0\u00A0\u00A0Experience\u00A0\u00A0\u00A0\u00A0Extracurriculars'
+          response = `I'm a passionate and driven Full Stack Web Developer with a strong fascination for the ever-evolving world of technology. As a recent
+ graduate of the University of Delaware, where I earned a Bachelor of Science in Computer Engineering with minors in Computer Science and
+ Cybersecurity, I've cultivated a diverse skill set that combines engineering principles with creative problem-solving. I am excited to
+ embark on new collaborations, tackle ambitious projects, and contribute to the ever-expanding realm of technology.`
           break
         case 'cd':
           setDirectory('Happy-Recruiter-Computer:Calum_Portfolio$')

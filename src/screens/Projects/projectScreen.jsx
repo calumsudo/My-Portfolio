@@ -10,6 +10,11 @@ import punkin from '../../assets/ProjectImages/Punkin.png'
 import BlackJack from '../../assets/ProjectImages/BlackJack.jpg'
 import Breese from '../../assets/ProjectImages/Breese.png'
 import Plot from '../../assets/ProjectImages/Plotting.png'
+import BinaryClock from '../../assets/ProjectImages/BinaryClock.jpg'
+import HashMap from '../../assets/ProjectImages/HashMap.jpg'
+import DLL from '../../assets/ProjectImages/DLL.png'
+import Calculator from '../../assets/ProjectImages/Calculator.png'
+import BunkerWire from '../../assets/ProjectImages/BunkerWire.png'
 import './projectScreen.scss'
 const ProjectsScreen = () => {
   const projects = [
@@ -26,19 +31,27 @@ const ProjectsScreen = () => {
       title: 'GPT Clone',
       imageUrl: gpt,
       description:
-        'In this project, I skillfully developed a replica User Interface inspired by the renowned ChatGPT, a groundbreaking creation by OpenAI. This remarkable undertaking harnesses the remarkable capabilities of the GPT-3.5 model through an API key. By leveraging the power of React Library for the frontend and Node.js for the backend, I have seamlessly brought this project to life. To explore and experience this innovative application firsthand, you can utilize your very own API key by downloading the source code and running it locally. This hands-on approach offers a unique opportunity to interact with the advanced AI model and witness the seamless fusion of front-end and back-end technologies.',
+        'In this project, I skillfully developed a replica User Interface inspired by ChatGPT. This remarkable undertaking harnesses the remarkable capabilities of the GPT-3.5 model through an API key. By leveraging the power of React Library for the frontend and Node.js for the backend, I have seamlessly brought this project to life. To explore and experience this innovative application firsthand, you can utilize your very own API key by downloading the source code and running it locally. This hands-on approach offers a unique opportunity to interact with the advanced AI model and witness the seamless fusion of front-end and back-end technologies.',
       github: 'https://github.com/calumsudo/chat-gpt-clone',
     },
     {
       title: 'Bartender',
       imageUrl: bartender,
-      description: 'Description for Project 3',
+      description:
+        'A freelance Bartending webapp made with React that connects bartenders with events. Currently still in development, this one is my favorite project by far so please ask me about it!',
       github: 'https://github.com/calumsudo/notes-app',
+    },
+    {
+      title: 'Bunker Wire',
+      imageUrl: BunkerWire,
+      description:
+        'A job software I wrote for the Ship Brokerage Company SPI marine, this python application which I packaged for Mac and Windows allows a user to upload the daily Bunker Pricing Report PDF into a GUI. The software then finds the relevant data and will append it to a selected Excel spreadsheet',
+      github: 'https://github.com/calumsudo/bunkerwire',
     },
     {
       title: 'Breese Architects',
       imageUrl: Breese,
-      description: 'Designed their new website, summer 2023.',
+      description: 'Designed Breese Architects new website, summer 2023.',
     },
     {
       title: 'Plotting',
@@ -50,38 +63,48 @@ const ProjectsScreen = () => {
     {
       title: 'Python Physics Game',
       imageUrl: punkin,
-      description: 'Description for Project 4',
+      description:
+        'Python GUI game that uses Physics. A pumpkin is spawned in at a random height and a target is placed at a random distance away. Choose the angle and velocity at which you wish to launch the pumpkin, if you hit the target you win.',
       github: 'https://github.com/calumsudo/PunkinChunkin',
     },
     {
       title: 'Operating System',
       imageUrl: os,
-      description: 'Description for Project 3',
+      description:
+        'Scheduling prpgram written in C that schedules jobs based on either shortest job first or first in first out.',
       github: 'https://github.com/caadams4/OS-Final-Proj',
     },
     {
       title: 'Binary Clock',
-      imageUrl: 'path-to-image-3.jpg',
-      description: 'Description for Project 3',
-      github: 'https://github.com/calumsudo/notes-app',
+      imageUrl: BinaryClock,
+      description:
+        'Built on a Raspberry Pi with a sense hat a real time Binary Clock with LEDs',
     },
     {
       title: 'Black Jack',
       imageUrl: BlackJack,
-      description: 'Description for Project 4',
+      description: 'Simple Black Jack game against a dealer in C',
       github: 'https://github.com/calumsudo/BlackJack',
     },
     {
       title: 'DLL Music Playlist',
-      imageUrl: 'path-to-image-3.jpg',
-      description: 'Description for Project 3',
-      github: 'https://github.com/calumsudo/notes-app',
+      imageUrl: DLL,
+      description:
+        'This was a very fun project made in C++ which uses Doubly Linked Lists to create playlists for music where it can be sorted by Artist, Name, or even song length. Unfortunately, I have lost the code for this project.',
     },
     {
       title: 'Hashmap Author',
-      imageUrl: 'path-to-image-4.jpg',
-      description: 'Description for Project 4',
-      github: 'https://github.com/calumsudo/notes-app',
+      imageUrl: HashMap,
+      description:
+        'In this C++ program upload a txt file of a chapter of your favorite author and the program will use Hash Maps and collision functions to make a new txt output file that aims to mimic the voice of that author.',
+      github: 'https://github.com/calumsudo/HashMap-Author-Voice',
+    },
+    {
+      title: 'VHDL Calculator',
+      imageUrl: Calculator,
+      description:
+        'Single Cycle Calculator made using VHDL, includes an ALU, REG, MUX, DEMUX, and more',
+      github: 'https://github.com/calumsudo/calandev',
     },
   ]
 
@@ -90,7 +113,7 @@ const ProjectsScreen = () => {
 
   return (
     <div className="project-screen">
-      <h2 className="project-screen-title">PROJECTS</h2>
+      <h1 className="project-screen-title">PROJECTS</h1>
       <div className="projects-container">
         <Grid container spacing={3}>
           {projects.map((project, index) => (
