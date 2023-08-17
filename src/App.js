@@ -9,6 +9,7 @@ import WelcomePage from './screens/Terminal/welcomeScreen'
 import { Route, Routes } from 'react-router'
 import Contact from './screens/Contact/contact'
 import About from './screens/About/about'
+import ErrPage from './components/404/404Page'
 
 const App = () => {
   const [currentScreen, setCurrentScreen] = useState('welcome')
@@ -57,6 +58,7 @@ const App = () => {
             }
           />
           <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<ErrPage />} />
         </Route>
       </Routes>
     </>

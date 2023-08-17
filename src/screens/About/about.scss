@@ -28,11 +28,18 @@
 
         @media (max-width: 1425px){
             h1{
-                font-size: 20px;
+                margin-top: 200px;
+                font-size: 30px;
             }
             p {
-                font-size: 15px;
+                font-size: 20px;
             }
+        }
+    }
+
+    @media (max-width: 1425px){
+        .text-zone {
+            width: 80%;
         }
     }
 

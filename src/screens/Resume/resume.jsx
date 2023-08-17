@@ -16,6 +16,8 @@ const Resume = () => {
     }, 4000)
   }, [])
 
+  const isSmallScreen = window.innerWidth <= 1425
+
   return (
     <Box className="resume-page">
       <Grid container>
@@ -46,9 +48,13 @@ const Resume = () => {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <div className="decorator-box">
-            <div className="decorator-box2"></div>
-          </div>
+          {isSmallScreen ? (
+            <div />
+          ) : (
+            <div className="decorator-box">
+              <div className="decorator-box2"></div>
+            </div>
+          )}
         </Grid>
       </Grid>
     </Box>
