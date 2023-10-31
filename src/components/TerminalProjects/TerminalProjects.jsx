@@ -77,6 +77,7 @@ export const projects = [
     imageUrl: BinaryClock,
     description:
       'Built on a Raspberry Pi with a sense hat a real time Binary Clock with LEDs',
+    github: 'https://github.com/calumsudo/raspberry_pi_binary_clock',
   },
   {
     title: 'Black Jack',
