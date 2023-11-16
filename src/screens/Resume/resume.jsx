@@ -1,11 +1,9 @@
 import './resume.scss'
 import { useEffect, useState } from 'react'
-import { Grid, Stack, Box } from '@mui/material'
+import { Grid, Box } from '@mui/material'
 import AnimatedLetters from '../../components/AnimatedLetters'
 import FileDownload from '../../assets/icons/download+file+page+paper+icon-1320165844661536600.png'
-import pdf from '../../assets/Resume.pdf'
-import merit from '../../assets/icons/Merit.png'
-import delaware from '../../assets/icons/University_of_Delaware_Seal.svg.png'
+import pdf from '../../assets/Calum-Siemer-Resume.pdf'
 const Resume = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   const downloadablePDFName = 'Calum-Siemer-Resume.pdf'

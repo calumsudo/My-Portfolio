@@ -17,6 +17,7 @@ const App = () => {
   const handleButtonClick = () => {
     setCurrentScreen('terminal')
   }
+  
   const handleClear = () => {
     setCurrentScreen('command-line')
   }
