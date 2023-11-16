@@ -12,6 +12,25 @@ const ProjectsScreen = () => {
       title: 'Bartender',
       imageUrl: 'https://github.com/calumsudo/My-Portfolio/blob/master/src/assets/ProjectImages/Bartender.png?raw=true',
       description: 'A freelance Bartending webapp made with React that connects bartenders with events. Currently still in development, this one is my favorite project by far so please ask me about it!',
+      weblink: 'https://drive.google.com/file/d/1_J45rvlvBd5Qp_mYK2njM9c7psKM1hQm/view'
+    },
+    {
+      title: 'Breese Architects',
+      imageUrl: 'https://github.com/calumsudo/My-Portfolio/blob/master/src/assets/ProjectImages/Breese.png?raw=true',
+      description: 'Designed Breese Architects new website, summer 2023.',
+    },
+    {
+      title: 'Operating System',
+      imageUrl: 'https://github.com/calumsudo/My-Portfolio/blob/master/src/assets/ProjectImages/OperatingSystem.png?raw=true',
+      description:
+        'Scheduling program written in C that schedules jobs based on either shortest job first or first in first out.',
+      github: 'https://github.com/caadams4/OS-Final-Proj',
+    },
+    {
+      title: 'DLL Music Playlist',
+      imageUrl: 'https://github.com/calumsudo/My-Portfolio/blob/master/src/assets/ProjectImages/DLL.png?raw=true',
+      description:
+        'This was a very fun project made in C++ which uses Doubly Linked Lists to create playlists for music where it can be sorted by Artist, Name, or even song length. Unfortunately, I have lost the code for this project.',
     }
   ], []);
 
@@ -35,9 +54,6 @@ const ProjectsScreen = () => {
   }, [privateProjects]);
 
   const getProjectImageName = (projectName) => {
-    // Logic to map the project name to the corresponding image name
-    // For example, if project name is 'Notes App', image name might be 'NotesApp.png'
-    // Adjust the logic based on your naming convention
     const imageName = projectName.replace(/\s+/g, '') + '.png';
     return imageName;
   };

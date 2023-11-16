@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
-import TerminalProjects from '../../components/TerminalProjects/TerminalProjects'
-import { projects } from '../../components/TerminalProjects/TerminalProjects'
 import Education from '../../components/Resume/Education/Education'
 import Experience from '../../components/Resume/Experience/Experience'
 import ExtraCurriculars from '../../components/Resume/Extracurriculars/Extracurriculars'
+import axios from 'axios'
+import TerminalProjects from '../../components/TerminalProjects/T'
 
 const CommandLine = ({ handleExit }) => {
   const [commandHistory, setCommandHistory] = useState([])
+  const [projects, setProjects] = useState([])
   const [currentCommand, setCurrentCommand] = useState('')
-  const [directory, setDirectory] = useState(
-    'Happy-Recruiter-Computer:Calum_Portfolio$'
-  )
+  const [directory, setDirectory] = useState('Happy-Recruiter-Computer:Calum_Portfolio$')
   const commandLineRef = useRef(null)
   const inputRef = useRef(null)
 
@@ -25,9 +24,19 @@ const CommandLine = ({ handleExit }) => {
   }
 
   useEffect(() => {
-    // Focus on the input element when the component mounts
-    inputRef.current.focus()
-  }, [])
+    axios.get('https://api.github.com/users/calumsudo/repos')
+      .then(response => {
+        const fetchedProjects = response.data.map(repo => ({
+          title: repo.name,
+          // ... other project properties
+        }));
+        setProjects(fetchedProjects);
+      })
+      .catch(error => console.error('Error fetching data: ', error));
+
+    inputRef.current.focus();
+  }, []);
+
 
   const processCommand = () => {
     // Process the currentCommand and generate the response
@@ -82,176 +91,211 @@ const CommandLine = ({ handleExit }) => {
           response = `Unknown Command ${currentCommand}`
       }
     }
-    if (directory === 'Happy-Recruiter-Computer:Calum_Portfolio/Projects$') {
-      switch (currentCommand) {
-        case 'ls':
-          response = `Notes_App\u00A0\u00A0\u00A0\u00A0GPT_Clone\u00A0\u00A0\u00A0\u00A0Bartender\u00A0\u00A0\u00A0\u00A0Bunker_Wire\u00A0\u00A0\u00A0\u00A0Breese_Architects\u00A0\u00A0\u00A0\u00A0Plotting\u00A0\u00A0\u00A0\u00A0Python_Physics_Game\u00A0\u00A0\u00A0\u00A0Operating_System
- Binary_Clock\u00A0\u00A0\u00A0\u00A0Black_Jack\u00A0DLL_Music_Playlist\u00A0\u00A0\u00A0\u00A0Hashmap_Author\u00A0\u00A0\u00A0\u00A0VHDL_Calculator`
-          break
-        case 'cd':
-          setDirectory('Happy-Recruiter-Computer:Calum_Portfolio$')
-          break
-        case 'open Notes_App':
-          response = (
-            <TerminalProjects
-              title={projects[0].title}
-              img={projects[0].imageUrl}
-              description={projects[0].description}
-              github={projects[0].github}
-              weblink={projects[0].weblink}
-            />
-          )
-          break
-        case 'open GPT_Clone':
-          response = (
-            <TerminalProjects
-              title={projects[1].title}
-              img={projects[1].imageUrl}
-              description={projects[1].description}
-              github={projects[1].github}
-            />
-          )
-          break
-        case 'open Bartender':
-          response = (
-            <TerminalProjects
-              title={projects[2].title}
-              img={projects[2].imageUrl}
-              description={projects[2].description}
-            />
-          )
-          break
-        case 'open Bunker_Wire':
-          response = (
-            <TerminalProjects
-              title={projects[3].title}
-              img={projects[3].imageUrl}
-              description={projects[3].description}
-              github={projects[3].github}
-            />
-          )
-          break
-        case 'open Breese_Architects':
-          response = (
-            <TerminalProjects
-              title={projects[4].title}
-              img={projects[4].imageUrl}
-              description={projects[4].description}
-              github={projects[4].github}
-            />
-          )
-          break
-        case 'open Plotting':
-          response = (
-            <TerminalProjects
-              title={projects[5].title}
-              img={projects[5].imageUrl}
-              description={projects[5].description}
-              github={projects[5].github}
-            />
-          )
-          break
-        case 'open Python_Physics_Game':
-          response = (
-            <TerminalProjects
-              title={projects[6].title}
-              img={projects[6].imageUrl}
-              description={projects[6].description}
-              github={projects[6].github}
-            />
-          )
-          break
-        case 'open Operating_System':
-          response = (
-            <TerminalProjects
-              title={projects[7].title}
-              img={projects[7].imageUrl}
-              description={projects[7].description}
-              github={projects[7].github}
-            />
-          )
-          break
-        case 'open Binary_Clock':
-          response = (
-            <TerminalProjects
-              title={projects[8].title}
-              img={projects[8].imageUrl}
-              description={projects[8].description}
-              github={projects[8].github}
-            />
-          )
-          break
-        case 'open Black_Jack':
-          response = (
-            <TerminalProjects
-              title={projects[9].title}
-              img={projects[9].imageUrl}
-              description={projects[9].description}
-              github={projects[9].github}
-            />
-          )
-          break
-        case 'open DLL_Music_Playlist':
-          response = (
-            <TerminalProjects
-              title={projects[10].title}
-              img={projects[10].imageUrl}
-              description={projects[10].description}
-              github={projects[10].github}
-            />
-          )
-          break
-        case 'open Hashmap_Author':
-          response = (
-            <TerminalProjects
-              title={projects[11].title}
-              img={projects[11].imageUrl}
-              description={projects[11].description}
-              github={projects[11].github}
-            />
-          )
-          break
-        case 'open VHDL_Calculator':
-          response = (
-            <TerminalProjects
-              title={projects[12].title}
-              img={projects[12].imageUrl}
-              description={projects[12].description}
-              github={projects[12].github}
-            />
-          )
-          break
-        case 'clear':
-          setCommandHistory([])
-          setCurrentCommand('')
-          setDirectory('Happy-Recruiter-Computer:Calum_Portfolio$')
-          return
-        case 'man':
-          response = `Commands: ls, cd {directory}, man, clear, exit, and open.
-              ls: shows a list of items in the current directory.
-              cd: followed by the name of the directory you want to enter changes the directory. To return to the main directory just type "cd".
-              clear: clears the terminal of all command history.
-              exit: exit the terminal.
-              open [file_name]: The open command opens a file, just as if you had double-clicked the file's icon.
-              For further explanation on how to operate the command line just type help
-              `
-          break
-        case 'help':
-          response = `
-      To start, type "ls" and press Enter to see a list of directories in the home folder.
-      To access a directory, type "cd" followed by the name of the directory you want to enter. For example: "cd Projects".
-      To see what projects are in the directory, type "ls" to display all the projects.
-      To open a project, type "open" followed by the name of the project you want to open. For example: "open Notes_App".
-      If you find the command line confusing, type "exit" to exit the current session.
-            `
-          break
-        case 'exit':
-          handleExit()
-          break
-        default:
-          response = `Unknown Command ${currentCommand}`
-      }
+//     if (directory === 'Happy-Recruiter-Computer:Calum_Portfolio/Projects$') {
+//       if (currentCommand.startsWith('open ')) {
+//         const projectName = currentCommand.substring(5); // Gets the project name after 'open '
+//         response = <TerminalProjects selectedProjectTitle={projectName} />;
+//       }
+//       switch (currentCommand) {
+//         case 'ls':
+//           response = `Cloud-Based-Notes-App\u00A0\u00A0\u00A0\u00A0GPT_Clone\u00A0\u00A0\u00A0\u00A0Bartender\u00A0\u00A0\u00A0\u00A0Bunker_Wire\u00A0\u00A0\u00A0\u00A0Breese_Architects\u00A0\u00A0\u00A0\u00A0Plotting\u00A0\u00A0\u00A0\u00A0Python_Physics_Game\u00A0\u00A0\u00A0\u00A0Operating_System
+//  Binary_Clock\u00A0\u00A0\u00A0\u00A0Black_Jack\u00A0DLL_Music_Playlist\u00A0\u00A0\u00A0\u00A0Hashmap_Author\u00A0\u00A0\u00A0\u00A0VHDL_Calculator`
+//           break
+//         case 'cd':
+//           setDirectory('Happy-Recruiter-Computer:Calum_Portfolio$')
+//           break
+//           case 'open Cloud-Based-Notes-App':
+//             const project = projects.find(p => p.title === 'Cloud-Based-Notes-App');
+//             if (project) {
+//               response = <T {...project} />;
+//             } else {
+//               response = 'Project not found';
+//             }
+//             break;
+//         case 'open GPT_Clone':
+//           response = (
+//             <TerminalProjects
+//               title={projects[1].title}
+//               img={projects[1].imageUrl}
+//               description={projects[1].description}
+//               github={projects[1].github}
+//             />
+//           )
+//           break
+//         case 'open Bartender':
+//           response = (
+//             <TerminalProjects
+//               title={projects[2].title}
+//               img={projects[2].imageUrl}
+//               description={projects[2].description}
+//             />
+//           )
+//           break
+//         case 'open Bunker_Wire':
+//           response = (
+//             <TerminalProjects
+//               title={projects[3].title}
+//               img={projects[3].imageUrl}
+//               description={projects[3].description}
+//               github={projects[3].github}
+//             />
+//           )
+//           break
+//         case 'open Breese_Architects':
+//           response = (
+//             <TerminalProjects
+//               title={projects[4].title}
+//               img={projects[4].imageUrl}
+//               description={projects[4].description}
+//               github={projects[4].github}
+//             />
+//           )
+//           break
+//         case 'open Plotting':
+//           response = (
+//             <TerminalProjects
+//               title={projects[5].title}
+//               img={projects[5].imageUrl}
+//               description={projects[5].description}
+//               github={projects[5].github}
+//             />
+//           )
+//           break
+//         case 'open Python_Physics_Game':
+//           response = (
+//             <TerminalProjects
+//               title={projects[6].title}
+//               img={projects[6].imageUrl}
+//               description={projects[6].description}
+//               github={projects[6].github}
+//             />
+//           )
+//           break
+//         case 'open Operating_System':
+//           response = (
+//             <TerminalProjects
+//               title={projects[7].title}
+//               img={projects[7].imageUrl}
+//               description={projects[7].description}
+//               github={projects[7].github}
+//             />
+//           )
+//           break
+//         case 'open Binary_Clock':
+//           response = (
+//             <TerminalProjects
+//               title={projects[8].title}
+//               img={projects[8].imageUrl}
+//               description={projects[8].description}
+//               github={projects[8].github}
+//             />
+//           )
+//           break
+//         case 'open Black_Jack':
+//           response = (
+//             <TerminalProjects
+//               title={projects[9].title}
+//               img={projects[9].imageUrl}
+//               description={projects[9].description}
+//               github={projects[9].github}
+//             />
+//           )
+//           break
+//         case 'open DLL_Music_Playlist':
+//           response = (
+//             <TerminalProjects
+//               title={projects[10].title}
+//               img={projects[10].imageUrl}
+//               description={projects[10].description}
+//               github={projects[10].github}
+//             />
+//           )
+//           break
+//         case 'open Hashmap_Author':
+//           response = (
+//             <TerminalProjects
+//               title={projects[11].title}
+//               img={projects[11].imageUrl}
+//               description={projects[11].description}
+//               github={projects[11].github}
+//             />
+//           )
+//           break
+//         case 'open VHDL_Calculator':
+//           response = (
+//             <TerminalProjects
+//               title={projects[12].title}
+//               img={projects[12].imageUrl}
+//               description={projects[12].description}
+//               github={projects[12].github}
+//             />
+//           )
+//           break
+//         case 'clear':
+//           setCommandHistory([])
+//           setCurrentCommand('')
+//           setDirectory('Happy-Recruiter-Computer:Calum_Portfolio$')
+//           return
+//         case 'man':
+//           response = `Commands: ls, cd {directory}, man, clear, exit, and open.
+//               ls: shows a list of items in the current directory.
+//               cd: followed by the name of the directory you want to enter changes the directory. To return to the main directory just type "cd".
+//               clear: clears the terminal of all command history.
+//               exit: exit the terminal.
+//               open [file_name]: The open command opens a file, just as if you had double-clicked the file's icon.
+//               For further explanation on how to operate the command line just type help
+//               `
+//           break
+//         case 'help':
+//           response = `
+//       To start, type "ls" and press Enter to see a list of directories in the home folder.
+//       To access a directory, type "cd" followed by the name of the directory you want to enter. For example: "cd Projects".
+//       To see what projects are in the directory, type "ls" to display all the projects.
+//       To open a project, type "open" followed by the name of the project you want to open. For example: "open Notes_App".
+//       If you find the command line confusing, type "exit" to exit the current session.
+//             `
+//           break
+//         case 'exit':
+//           handleExit()
+//           break
+//         default:
+//           response = `Unknown Command ${currentCommand}`
+//       }
+//     }
+if (directory === 'Happy-Recruiter-Computer:Calum_Portfolio/Projects$') {
+  if (currentCommand.startsWith('open ')) {
+    const projectName = currentCommand.substring(5); // Replaces underscores with spaces
+    response = <TerminalProjects selectedProjectTitle={projectName} />;
+  } else {
+    switch (currentCommand) {
+      case 'ls':
+        // Assuming you have a way to get all project names (both private and fetched)
+        // For example, you could concatenate the names from both sources
+        const allProjectNames = projects.map(p => p.title.replace(/\s+/g, '_')).join('\u00A0\u00A0\u00A0');
+        response = allProjectNames;
+        break;
+      case 'cd':
+        setDirectory('Happy-Recruiter-Computer:Calum_Portfolio$');
+        break;
+      case 'clear':
+        setCommandHistory([]);
+        setCurrentCommand('');
+        setDirectory('Happy-Recruiter-Computer:Calum_Portfolio$');
+        return;
+      case 'man':
+        // man command response
+        break;
+      case 'help':
+        // help command response
+        break;
+      case 'exit':
+        handleExit();
+        break;
+      default:
+        response = `Unknown Command ${currentCommand}`;
     }
+  }
+}
     if (directory === 'Happy-Recruiter-Computer:Calum_Portfolio/Resume$') {
       switch (currentCommand) {
         case 'ls':
@@ -372,7 +416,6 @@ const CommandLine = ({ handleExit }) => {
           <br />
           <span
             className="terminal-error"
-            style={{ whiteSpace: 'pre-wrap', marginLeft: '10px' }}
           >
             {entry.response}
           </span>
