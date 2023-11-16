@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Grid, useMediaQuery } from '@mui/material';
 import Project from '../../components/ProjectCard/project';
 import axios from 'axios';
@@ -6,6 +6,14 @@ import './projectScreen.scss';
 
 const ProjectsScreen = () => {
   const [projects, setProjects] = useState([]);
+
+  const privateProjects = useMemo(() =>[
+    {
+      title: 'Bartender',
+      imageUrl: 'https://github.com/calumsudo/My-Portfolio/blob/master/src/assets/ProjectImages/Bartender.png?raw=true',
+      description: 'A freelance Bartending webapp made with React that connects bartenders with events. Currently still in development, this one is my favorite project by far so please ask me about it!',
+    }
+  ], []);
 
   useEffect(() => {
     axios.get('https://api.github.com/users/calumsudo/repos')
@@ -21,10 +29,10 @@ const ProjectsScreen = () => {
             liveDemo: repo.homepage
           };
         });
-        setProjects(fetchedProjects);
+        setProjects([...privateProjects, ...fetchedProjects]);
       })
       .catch(error => console.error('Error fetching data: ', error));
-  }, []);
+  }, [privateProjects]);
 
   const getProjectImageName = (projectName) => {
     // Logic to map the project name to the corresponding image name
